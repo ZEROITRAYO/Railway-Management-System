@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Table.css">
+</head>
+<body style="background-color: white; color: black;">
+    <table>
+        <thead>
+            <tr>
+                <th>Ticket No</th>
+                <th>Train ID</th>
+                <th>Class</th>
+                <th>Seat No</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Date Of Journey</th>
+                <th>Booking Date</th>
+                <th>User Email</th>
+                <th>Fare</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+            <% for(var i=0; i < jsonresponse.length; i++) { %>
+                <tr>
+                    <td><%= jsonresponse[i].ticket_no %></td>
+                    <td><%= jsonresponse[i].train_id %></td>
+                    <td><%= jsonresponse[i].class_name %></td>
+                    <td><%= jsonresponse[i].seat_no %></td>
+                    <td><%= jsonresponse[i].origin %></td>
+                    <td><%= jsonresponse[i].destination %></td>
+                    <td><%= jsonresponse[i].date_of_journey %></td>
+                    <td><%= jsonresponse[i].booking_date %></td>
+                    <td><%= jsonresponse[i].email %></td>
+                    <td><%= jsonresponse[i].fare %></td>
+                    <td><%= jsonresponse[i].status %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Railway management system</title>
+    <link rel="stylesheet" type="text/css" href="Emp_login.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Employee Login</h2>
+        <form method="post" action="emplogin" id="loginForm">
+            <div class="textbox">
+                <input type="text" name="empid" required="empid">
+                <span data-placeholder="Employee ID"></span>
+            </div>
+            <div class="textbox">
+                <input type="password" name="password" required="password">
+                <span data-placeholder="Password"></span>
+            </div>
+            <div class="textbox">
+                <input type="text" name="email" required="email">
+                <span data-placeholder="Email"></span>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    const inputs = document.querySelectorAll(".textbox input");
+
+    inputs.forEach(input => {
+        input.addEventListener("focus", function() {
+            const placeholder = this.nextElementSibling;
+            placeholder.style.display = "none";
+        });
+
+        input.addEventListener("blur", function() {
+            const placeholder = this.nextElementSibling;
+            if (this.value === "") {
+                placeholder.style.display = "block";
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

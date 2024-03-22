@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Train Time Table</title>
+    <link rel="stylesheet" type="text/css" href="change_TT.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Change Train Time Table</h1>
+    </div>
+    <div class="container">
+        <form method="post" action="traintimetable">
+            <label for="time_change">Select timings to change:</label>
+            <select id="time_change" name="time_change" required>
+                <option value="">-- Select --</option>
+                <option value="departure_time">Change Departure Time at Origin</option>
+                <option value="arrival_time">Change Arrival Time at Destination</option>
+            </select>
+
+            <button type="submit">Proceed</button>
+        </form>
+    </div>
+</body>
+</html>

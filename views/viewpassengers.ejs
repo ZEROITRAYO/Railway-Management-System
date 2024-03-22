@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Table.css">
+</head>
+<body>
+    <table><thead><tr>
+                <th>Ticket No</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Train ID</th>
+                <th>Class</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Contact</th>
+                <th>Aadhar ID</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+            <% for(var i=0; i < jsonresponse.length; i++) { %>
+                <tr>
+                  <td><%= jsonresponse[i].ticket_no %></td>
+                  <td><%= jsonresponse[i].pass_first_name %></td>
+                  <td><%= jsonresponse[i].pass_last_name %></td>
+                  <td><%= jsonresponse[i].train_id %></td>
+                  <td><%= jsonresponse[i].class_name %></td>
+                  <td><%= jsonresponse[i].gender %></td>
+                  <td><%= jsonresponse[i].age %></td>
+                  <td><%= jsonresponse[i].contact %></td>
+                  <td><%= jsonresponse[i].aadhar_ID %></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

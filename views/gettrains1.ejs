@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Table.css">
+</head>
+<body>
+    <table><thead><tr>
+                <th>Train ID</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Arrival</th>
+                <th>Departure</th>
+                <th>Date Of Journey</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+            <% for(var i=0; i < jsonresponse.length; i++) { %>
+                <tr>
+                  <td><%= jsonresponse[i].train_id %></td>
+                  <td><%= jsonresponse[i].origin %></td>
+                  <td><%= jsonresponse[i].destination %></td>
+                  <td><%= jsonresponse[i].arrival %></td>
+                  <td><%= jsonresponse[i].departure %></td>
+                  <td><%= jsonresponse[i].date_of_journey %></td>
+                  <td><form method="post" action="/checkavailability"><button name="<%= jsonresponse[i].train_id %>" type="submit" onclick="cancel()">Check Availability</button></form></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

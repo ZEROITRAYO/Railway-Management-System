@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* Set background color to white */
+}
+
+.navbar {
+  background-color: #28a745; /* Set navbar background color to green */
+  color: #fff; /* Set text color to white */
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.dashboard-button {
+  width: 45%; /* Set button width to 45% */
+  margin-bottom: 10px;
+  background-color: #fff; /* Set button background color to white */
+  color: #28a745; /* Set button text color to green */
+  border: 2px solid #28a745; /* Add border */
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.dashboard-button:hover {
+  background-color: #28a745; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+}

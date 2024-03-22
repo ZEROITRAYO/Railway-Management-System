@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Departure Time</title>
+    <link rel="stylesheet" type="text/css" href="change_dept.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Change Departure Time</h1>
+    </div>
+    <div class="container">
+        <form method="post" action="/updatedeparture">
+            <label for="train_id">Train ID:</label>
+            <input type="text" id="train_id" name="train_id" required pattern="[A-Za-z]{2}[0-9]{4}" placeholder="Enter Train ID">
+
+            <label for="date_of_journey">Date of Journey:</label>
+            <input type="text" id="date_of_journey" name="date_of_journey" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" title="Date should be in YYYY-MM-DD format" placeholder="YYYY-MM-DD">
+
+            <label for="new_departure">New Departure Time:</label>
+            <input type="text" id="new_departure" name="new_departure" pattern="^([01]\d|2[0-3]):([0-5]\d)$" placeholder="Enter New Departure Time (24-hour format)" required>
+
+            <button type="submit">Update Time</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table><thead><tr>
+                <th>Train ID</th>
+                <th>Origin</th>
+                <th>Destination</th>                
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Date Of Journey</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+            <% for(var i=0; i < jsonres.length; i++) { %>
+                <!-- <% var data = {jsonres[i].train_id:"a", jsonres[i].date_of_journey: "b"}; %> -->
+                <tr>
+                  <td><%= jsonres[i].train_id %></td>
+                  <td><%= jsonres[i].origin %></td>
+                  <td><%= jsonres[i].destination %></td>
+                  <td><%= jsonres[i].departure %></td>
+                  <td><%= jsonres[i].arrival %></td>
+                  <td><%= jsonres[i].date_of_journey %></td>
+                  <td><form method="post" action="/checkavailability">
+                        <input type="hidden" name="train_id" value="<%= jsonres[i].train_id %>">
+                        <input type="hidden" name="date_of_journey" value="<%= jsonres[i].date_of_journey %>">
+                        <button type="submit">Check Availability</button>
+                    </form></td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

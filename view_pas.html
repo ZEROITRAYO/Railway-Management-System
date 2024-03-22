@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Passengers</title>
+    <link rel="stylesheet" type="text/css" href="view_pas.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>View Passengers</h1>
+    </div>
+    <div class="container">
+        <form method="post" action="/viewpassengers">
+            <label for="train_id">Train ID:</label>
+            <input type="text" id="train_id" name="train_id" required pattern="[A-Za-z]{2}[0-9]{4}" placeholder="Enter Train ID">
+
+            <label for="date_of_journey">Date of Journey:</label>
+            <input type="text" id="date_of_journey" name="date_of_journey" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" title="Date should be in YYYY-MM-DD format" placeholder="YYYY-MM-DD">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

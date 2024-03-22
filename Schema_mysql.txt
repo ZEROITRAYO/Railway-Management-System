@@ -1,0 +1,132 @@
+create table city(  
+    city_name varchar(50),     
+    state varchar(50),         
+    primary key (city_name)
+);
+
+create table railway_station(  
+    city_name varchar(50),     
+    station_code varchar(50) primary key,
+    station_name varchar(100),     
+    platform int,     
+    foreign key (city_name) references city(city_name) 
+);
+
+create table train(
+	train_id varchar(100),
+    train_name varchar(100),
+    distance int,
+    no_of_stops int,
+    primary key (train_id)
+);
+
+create table train_tt(
+	train_id varchar(100),
+	origin varchar(50),
+    destination varchar(50),
+	arrival time,
+	departure time,
+    platform int,
+    date_of_journey date,
+    primary key (departure,platform,date_of_journey),
+    foreign key (train_id) references train(train_id)
+);
+
+
+create table seats(
+	train_id varchar(100),
+    class_name varchar(50),
+    fare int,
+    total_seats int,
+    primary key (train_id,class_name),
+    foreign key (train_id) references train(train_id)
+);
+
+
+create table confirmed_seats(
+	train_id varchar(100),
+    class_name varchar(50),
+    seat_no varchar(50),
+    pnr varchar(100),
+    passenger_name varchar(100),
+    primary key(train_id,class_name,seat_no),
+    foreign key (train_id,class_name) references seats(train_id,class_name)
+);
+
+
+create table p_profile(
+	pnr varchar(100),
+    user_name varchar(100),
+    password_ varchar(100),
+    gender varchar(50),
+    phone_number BIGINT,
+    address varchar(500),
+    email varchar(100),
+    dob date,
+    primary key (pnr,user_name)
+);
+
+
+create table passenger(
+	pnr varchar(100),
+    passenger_name varchar(100),
+    train_id varchar(100),
+    class_name varchar(50),
+    seat_no varchar(50),
+    gender varchar(50),
+    age int,
+    aadhar_ID Bigint primary key,
+    foreign key (pnr) references p_profile(pnr)
+);
+
+
+create table tickets(
+	pnr varchar(100),
+    ticket_no varchar(100),
+    train_id varchar(100),
+    class_name varchar(50),
+    seat_no varchar(50),
+    fare int,
+    t_status varchar(50),
+    origin varchar(100),
+    destination varchar(100),
+    date_of_journey date,
+    booking_date date,
+    primary key (ticket_no),
+    foreign key(train_id,class_name,seat_no) references confirmed_seats(train_id,class_name,seat_no)
+);
+
+
+
+create table transaction_details(
+	transaction_id varchar(50),
+    pnr varchar(100),
+    amount_paid int,
+    no_of_tickets int,
+    class_name varchar(50),
+    primary key (transaction_id,pnr),
+    foreign key (pnr) references p_profile(pnr)
+);
+
+
+create table cancellation(
+	ticket_no varchar(100),
+    train_id varchar(100),
+    pnr varchar(100),
+    cancellation_date date,
+    charges int,
+    primary key (ticket_no),
+    foreign key (ticket_no) references tickets(ticket_no)
+);
+
+
+create table fare_history(
+	train_id varchar(100),
+    class_name varchar(100),
+    old_fare int,
+    new_fare int,
+    price_change_date date,
+    primary key(train_id,class_name),
+    foreign key(train_id,class_name) references seats(train_id,class_name)
+);
+

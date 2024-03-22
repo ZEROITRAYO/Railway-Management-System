@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Journey Details Form</title>
+    <link rel="stylesheet" type="text/css" href="book_tickets.css">
+</head>
+<body>
+    <div class="navbar" colo>
+        <h1 style="color: white;">Journey Details</h1>
+    </div>
+    <div class="container">
+        <form method="post" action="/findtrains">
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin" pattern="[a-zA-Z]+" required title="Alphabets only">
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" pattern="[a-zA-Z]+" required title="Alphabets only">
+
+            <label for="date">Date of Journey (YYYY-MM-DD):</label>
+            <input type="date" id="date" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" title="Date should be in YYYY-MM-DD format">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

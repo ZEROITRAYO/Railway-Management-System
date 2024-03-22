@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Train Revenue</title>
+    <link rel="stylesheet" type="text/css" href="chk_revenue.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Check Train Revenue</h1>
+    </div>
+    <div class="container">
+        <form method="post" action="/trainrevenue">
+            <label for="train_id">Train ID:</label>
+            <input type="text" id="train_id" name="train_id" required pattern="[A-Za-z]{2}[0-9]{4}" placeholder="Enter Train ID">
+
+            <button type="submit">Check</button>
+        </form>
+    </div>
+</body>
+</html>

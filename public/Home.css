@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-image: url('https://img.goodfon.com/wallpaper/nbig/2/c7/zheleznaia-doroga-poezd-fon-2.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dark-theme {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header {
+  text-align: center;
+}
+
+.train-icon {
+  margin-bottom: 20px;
+}
+
+.train-icon svg {
+  margin-bottom: 10px;
+}
+
+.caption {
+  font-size: 1.2em;
+}
+
+.header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2em;
+}
+
+.buttons-container {
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-block;
+  background-color: #3498db;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #ecf0f1;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+.button-back {
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+.quote {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #34495e;
+  border-radius: 5px;
+}
+
+blockquote {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+cite {
+  display: block;
+  font-size: 0.9em;
+  text-align: right;
+  color: #ecf0f1;
+}
+
+.reviews-carousel {
+  margin-top: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  text-wrap:wrap;
+  flex:auto;
+  padding: 10px;
+}
+
+.review {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 20px;
+  background-color: #2c3e50;
+  border-radius: 5px;
+  color: #ecf0f1;
+  font-size: 1.1em;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
+  height: 200px;
+  display: flex;
+  text-wrap:wrap;
+  flex:auto;
+  width: 200px;
+}
+
+.review:hover {
+  transform: scale(1.05);
+}

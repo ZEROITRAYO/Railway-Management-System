@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cancel Bookings</title>
+    <link rel="stylesheet" type="text/css" href="cancel_bookings.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Cancel Bookings</h1>
+    </div>
+    <div class="container">
+        <form method="post" action="/cancelbookings">
+            <label for="ticket_no">Ticket Number:</label>
+            <input type="text" id="ticket_no" name="ticket_no" required pattern="\d+" title="Please enter only numbers">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

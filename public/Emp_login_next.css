@@ -1,0 +1,56 @@
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Set background color to white */
+}
+
+.navbar {
+    background-color: #28a745; /* Set navbar background color to green */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensure buttons wrap to next line if container is not wide enough */
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dashboard-button {
+    flex: 0 0 calc(30% - 10px); /* Set button width to 30% of container width with 10px margin between buttons */
+    padding: 15px;
+    background-color: #fff; /* Set background color of buttons to white */
+    border: 2px solid #28a745; /* Set border color to green */
+    color: #28a745; /* Set text color to green */
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center; /* Center button text */
+    transition: background-color 0.3s, color 0.3s; /* Add transition effect for background and text color */
+}
+
+@media (max-width: 768px) {
+    .dashboard-button {
+        flex-basis: calc(50% - 10px); /* Set button width to 50% of container width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-button {
+        flex-basis: calc(100% - 10px); /* Set button width to 100% of container width for smaller screens */
+    }
+}
+
+.dashboard-button:hover {
+    background-color: #28a745; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+}
