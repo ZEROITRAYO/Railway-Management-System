@@ -223,6 +223,14 @@ userRouter.post("/cancelbookings", async (req,res,next)=>{
            }else{
                // console.log(result[0]);
                // res.send(result);
+               rms.query("CALL cancel_table(?)",[ticket_no],(error,result2)=>{
+                if(error){
+                    return (error);
+                }
+                else{
+                    return(console.log(result2));
+                }
+               })
                rms.query("SELECT cancellation_fee(?)",[ticket_no],(error,result1)=>{
                 if(error){
                     return (error);
