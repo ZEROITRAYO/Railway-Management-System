@@ -217,20 +217,13 @@ userRouter.get("/viewbookings", async (req,res,next)=>{
 userRouter.post("/cancelbookings", async (req,res,next)=>{
     try {
         const ticket_no = req.body.ticket_no;
-        rms.query("CALL insert_cancellation(?)",[ticket_no], (error, result)=>{
+        rms.query("CALL insert_cancellation(?,?)",[ticket_no,usermail],(error, result)=>{
            if(error){
                return (error);
            }else{
                // console.log(result[0]);
                // res.send(result);
-               rms.query("CALL cancel_table(?)",[ticket_no],(error,result2)=>{
-                if(error){
-                    return (error);
-                }
-                else{
-                    return(console.log(result2));
-                }
-               })
+               
                rms.query("SELECT cancellation_fee(?)",[ticket_no],(error,result1)=>{
                 if(error){
                     return (error);
@@ -272,6 +265,7 @@ userRouter.post("/userprofile", async (req,res,next)=>{
         const dob = req.body.birthdate;
         const phone = req.body.phone;
         const aadhar = req.body.aadhar;
+        const money=req.body.money;
         // console.log(usermail);
         // console.log(fname);
         // console.log(lname);
@@ -279,16 +273,31 @@ userRouter.post("/userprofile", async (req,res,next)=>{
         // console.log(dob);
         // console.log(phone);
         // console.log(aadhar);
-        rms.query("UPDATE user_profile SET first_name = ?, last_name = ?, dob = ?, gender = ?, contact = ?, aadhar_ID = ? WHERE email = (SELECT email FROM user_login WHERE email = ?)",[fname,lname,dob,gender,phone,aadhar,usermail], (error, result)=>{
+        rms.query("UPDATE user_profile SET first_name = ?, last_name = ?, dob = ?, gender = ?, contact = ?, aadhar_ID = ?, money = ? WHERE email = (SELECT email FROM user_login WHERE email = ?)",[fname,lname,dob,gender,phone,aadhar,money,usermail], (error, result)=>{
            if(error){
                return (error);
            }else{
                // console.log(result[0]);
                // res.send(result);
+               const ticket_cancelled = `<!DOCTYPE html>
+               <html>
+               <head>
+                   <title>Ticket Cancelled</title>
+                   <link rel="stylesheet" type="text/css" href="popup.css">
+               </head>
+               <body>
+                   <div class="container">
+                       <h1>Profile Updated Successfully!</h1>
+                       <a href="userhome" class="nav-btn">Go Back To Home Page</a>
+                   </div>
+                   
+               </body>
+               </html>`;
+                                   res.send(ticket_cancelled);
                return (console.log(result));
-              
+             
            }
-           res.sendFile(__dirname + "/user.html")
+           
        })
 
    } catch (error) {
@@ -297,5 +306,38 @@ userRouter.post("/userprofile", async (req,res,next)=>{
    }
    
 });
+
+
+// Router to view money
+userRouter.get('/money', (req, res,next) => {
+   
+   const query = 'SELECT money FROM user_profile WHERE email = ?';
+  
+   rms.query(query, [usermail], (error, results, fields) => {
+   if (error) {
+   console.error('Error retrieving money from database: ' + error);
+   res.status(500).send('Error retrieving money from database');
+   return;
+   }
+  
+   if (results.length === 0) {
+   res.status(404).send('User not found');
+   return;
+   }
+  
+   const money = results[0].money;
+   res.render(__dirname + '/views/money.ejs', {money});
+   });
+
+
+  
+       
+         
+        }
+    
+    
+   
+);
+  
 
 module.exports = userRouter;
